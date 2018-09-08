@@ -31,7 +31,6 @@ port=25000 + (test_exchange_index if test_mode else 0)
 exchange_hostname = "test-exch-" + team_name if test_mode else prod_exchange_hostname
 
 price = {"AAPL"	: [], "BABA": [], "BABZ": [], "BOND": [], "GOOG": [], "MSFT": [], "XLK": []}
-order_id = 0
 
 # ~~~~~============== NETWORKING CODE ==============~~~~~
 def connect():
@@ -61,6 +60,7 @@ def moving_average(history, time_length):
     return total_price / price_count
 
 def main():
+    order_id = 0
     exchange = connect()
     write_to_exchange(exchange, {"type": "hello", "team": team_name.upper()})
 
