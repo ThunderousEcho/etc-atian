@@ -92,12 +92,6 @@ def main():
 
 
 
-
-
-
-
-
-
         # A common mistake people make is to call write_to_exchange() > 1
         # time for every read_from_exchange() response.
         # Since many write messages generate marketdata, this will cause an
