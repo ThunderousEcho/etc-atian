@@ -71,8 +71,7 @@ def main():
         if from_exchange["type"] == "book":
 
             symbol = from_exchange["symbol"]
-            if symbol != "XLK":
-                return
+
 
             while price[symbol][0] < time.time() - 60:
                 price[symbol].pop(0)
@@ -88,7 +87,8 @@ def main():
             average_price = total_price / price_count
             price[symbol].append([time.time(), average_price])
 
-            print(symbol, average_price, moving_average(price[symbol], 15), moving_average(price[symbol], 60))
+            if symbol == "XLK":
+                print(symbol, average_price, moving_average(price[symbol], 15), moving_average(price[symbol], 60))
 
         #system('clear')
         #print(json.dumps(price, indent=4, sort_keys=True))
