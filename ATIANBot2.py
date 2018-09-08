@@ -87,7 +87,7 @@ def main():
 
 
         #trading
-        while  not AVOld == -1 and not AVnew == -1:pass
+        #while  not AVOld == -1 and not AVnew == -1:pass
         # Do trade based on Average values trade
 
 
