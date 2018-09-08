@@ -53,6 +53,7 @@ def main():
     write_to_exchange(exchange, {"type": "hello", "team": team_name.upper()})
 
     book = {}
+    price = {}
 
     while 1 == 1:
 
@@ -60,8 +61,19 @@ def main():
 
         print(from_exchange["type"], from_exchange, file=sys.stderr)
 
-        #if from_exchange["type"] == "book":
-            #book[from_exchange["symbol"]] = from_exchange
+        if from_exchange["type"] == "book":
+            book[from_exchange["symbol"]] = from_exchange
+            p = 0
+            pc = 0
+            for s in from_exchange["sell"]:
+                p += s[0] * s[1]
+                pc += s[1]
+            for s in from_exchange["buy"]:
+                p += s[0] * s[1]
+                pc += s[1]
+            price[from_exchange["symbol"]] = p / pc
+
+            print(from_exchange["symbol"], price[from_exchange["symbol"]])
 
         # A common mistake people make is to call write_to_exchange() > 1
         # time for every read_from_exchange() response.
