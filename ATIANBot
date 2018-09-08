@@ -67,7 +67,7 @@ def main():
         # exponential explosion in pending messages. Please, don't do that!
         system('clear')
         for page in book:
-            print(page, file=sys.stderr)
+            print(book[page], file=sys.stderr)
 
 
 if __name__ == "__main__":
