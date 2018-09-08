@@ -57,7 +57,7 @@ def moving_average(history, time_length):
             return total_price / price_count
         total_price += history[i][1]
         price_count += 1
-
+    return total_price / price_count
 
 def main():
     exchange = connect()
