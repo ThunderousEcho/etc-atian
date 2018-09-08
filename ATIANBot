@@ -105,12 +105,12 @@ def main():
 
             if short_avg > long_avg + 1:
                 print("Buy!", id)
-                write_to_exchange(exchange, {"type": "add", "order_id": order_id, "symbol": symbol, "dir": "BUY", "price": math.ceil(average_price) + 2, "size": 1})
+                write_to_exchange(exchange, {"type": "add", "order_id": order_id, "symbol": symbol, "dir": "BUY", "price": math.ceil(average_price) + 2, "size": 20})
                 threading.Thread(target=delayed_cancel, args=(exchange, order_id)).start()
                 order_id += 1
             elif long_avg > short_avg + 1:
                 print("Sell!", id)
-                write_to_exchange(exchange, {"type": "add", "order_id": order_id, "symbol": symbol, "dir": "SELL", "price": math.floor(average_price) - 2, "size": 1})
+                write_to_exchange(exchange, {"type": "add", "order_id": order_id, "symbol": symbol, "dir": "SELL", "price": math.floor(average_price) - 2, "size": 20})
                 threading.Thread(target=delayed_cancel, args=(exchange, order_id)).start()
                 order_id += 1
 
