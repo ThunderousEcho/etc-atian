@@ -11,6 +11,7 @@ import sys
 import socket
 import json
 import time
+import math
 from os import system, name
 
 # ~~~~~============== CONFIGURATION  ==============~~~~~
@@ -94,11 +95,11 @@ def main():
 
             if short_avg > long_avg + 1:
                 print("Buy!")
-                write_to_exchange(exchange, {"type": "add", "order_id": order_id, "symbol": symbol, "dir": "BUY", "price": average_price, "size": 1})
+                write_to_exchange(exchange, {"type": "add", "order_id": order_id, "symbol": symbol, "dir": "BUY", "price": math.ceil(average_price), "size": 1})
                 order_id += 1
             elif long_avg > short_avg + 1:
                 print("Sell!")
-                write_to_exchange(exchange, {"type": "add", "order_id": order_id, "symbol": symbol, "dir": "SELL", "price": average_price, "size": 1})
+                write_to_exchange(exchange, {"type": "add", "order_id": order_id, "symbol": symbol, "dir": "SELL", "price": math.floor(average_price), "size": 1})
                 order_id += 1
 
         #system('clear')
