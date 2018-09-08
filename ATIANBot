@@ -54,7 +54,7 @@ def main():
     write_to_exchange(exchange, {"type": "hello", "team": team_name.upper()})
 
     book = {}
-    price = {}
+    price = {"AAPL"	: {}, "BABA": {}, "BABZ": {}, "BOND": {}, "GOOG": {}, "MSFT": {}, "XLK": {}}
 
     while 1 == 1:
 
@@ -73,15 +73,8 @@ def main():
             average_price = total_price / price_count
             price[from_exchange["symbol"]][time.time()] = average_price
 
-            print(from_exchange["symbol"], price[from_exchange["symbol"]])
-
-        # A common mistake people make is to call write_to_exchange() > 1
-        # time for every read_from_exchange() response.
-        # Since many write messages generate marketdata, this will cause an
-        # exponential explosion in pending messages. Please, don't do that!
-        #system('clear')
-        #for page in book:
-            #print(book[page], file=sys.stderr)
+        system('clear')
+        print(json.dumps(price["GOOG"], indent=4, sort_keys=True))
 
 
 if __name__ == "__main__":
