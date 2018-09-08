@@ -83,17 +83,17 @@ def main():
             price[from_exchange["symbol"]] = p / pc
 
             print(from_exchange["symbol"], price[from_exchange["symbol"]])
-
+            print(from_exchange["type"], from_exchange, file=sys.stderr)
 
 
         #trading
-        #while  not AVOld == -1 and not AVnew == -1:pass
+        #while  not AVOld == -1 and not AVnew == -1: pass
         # Do trade based on Average values trade
 
 
 
 
-        print(from_exchange["type"], from_exchange, file=sys.stderr)
+
 
 
 
