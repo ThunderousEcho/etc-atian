@@ -74,7 +74,7 @@ def main():
             price[from_exchange["symbol"]][time.time()] = average_price
 
         system('clear')
-        print(json.dumps(price["GOOG"], indent=4, sort_keys=True))
+        print(json.dumps(price, indent=4, sort_keys=True))
 
 
 if __name__ == "__main__":
